@@ -1,0 +1,15 @@
+@port = 8000
+@hostName = localhost
+@host={{hostName}}:{{port}}
+
+###
+GET http://{{host}}/ping
+
+###
+POST http://{{host}}/users
+Content-Type: application/json
+
+{
+    "name":"Havik Priyatama",
+    "age":30
+}
