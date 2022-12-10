@@ -14,7 +14,6 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const credential = jwt.verifyToken(bearerToken[1]);
-    console.log(credential);
 
     if (!credential) {
       return res.status(401).send('Unauthorize');
