@@ -1,14 +1,15 @@
-import express, { Application, Request, Response } from 'express';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
-import helmet from 'helmet';
 import compression from 'compression';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import express, { Application, Request, Response } from 'express';
+import helmet from 'helmet';
 import morgan from 'morgan';
+import connection from './db/connection';
 
 //Router
-import UserRoutes from './routers/UserRoute';
 import AuthRoute from './routers/AuthRoute';
+import UserRoutes from './routers/UserRoute';
 
 export class App {
   private app: Application;
@@ -40,5 +41,14 @@ export class App {
     this.app.listen(process.env.PORT, () => {
       console.log('Application running in port ' + process.env.PORT);
     });
+  }
+
+  public async testConnection(): Promise<void> {
+    try {
+      await connection.authenticate();
+      console.log('Connection has been established successfully.');
+    } catch (error) {
+      console.error('Unable to connect to the database:', error);
+    }
   }
 }

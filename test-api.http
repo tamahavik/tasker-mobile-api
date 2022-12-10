@@ -7,6 +7,7 @@ GET http://{{host}}/ping
 
 ###
 GET http://{{host}}/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsInVzZXJuYW1lIjoiaGF0YW1hMDAxIiwicGFzc3dvcmQiOiIkMmIkMTAkRHBLdzRjeVZxT1JWTzdoWjJCR1ZodVVPUjV3MGo1RGNDdE9YeDI1ZEtrMndhMkdmQzAvOW0iLCJpYXQiOjE2NzA2OTYzNzV9.rXDwmjkHZebywC7e6VwxGlmI8-1_b5vqXHlsVLUlsXE
 
 ###
 POST http://{{host}}/api/v1/users
@@ -20,6 +21,16 @@ Content-Type: application/json
 POST http://{{host}}/api/v1/auth/login
 Content-Type: application/json
 
+{
+    "username" : "hatama001",
+    "password" : "123456"
+}
+
 ###
 POST http://{{host}}/api/v1/auth/register
 Content-Type: application/json
+
+{
+    "username" : "hatama001",
+    "password" : "123456"
+}
